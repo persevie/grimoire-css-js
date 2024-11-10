@@ -1,0 +1,36 @@
+{
+  "name": "@persevie/gcssjs-win32-arm64-msvc",
+  "version": "1.0.0",
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "main": "gcssjs.win32-arm64-msvc.node",
+  "files": [
+    "gcssjs.win32-arm64-msvc.node"
+  ],
+  "description": "JavaScript wrapper for magical Grimoire CSS",
+  "keywords": [
+    "css",
+    "rust",
+    "styling",
+    "css-framework",
+    "animations",
+    "css-compiler",
+    "utility-classes",
+    "css-optimizer",
+    "language-agnostic",
+    "dynamic-styles",
+    "style-system",
+    "rust-frontend",
+    "rust-web"
+  ],
+  "author": "Dmitrii Shatokhin <dmtrshatokhin@gmail.com> (https://github.com/dmtrshat)",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10"
+  },
+  "repository": "https://github.com/persevie/grimoire-css-js.git"
+}

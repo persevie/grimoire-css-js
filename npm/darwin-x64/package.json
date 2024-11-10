@@ -1,0 +1,36 @@
+{
+  "name": "@persevie/gcssjs-darwin-x64",
+  "version": "1.0.0",
+  "os": [
+    "darwin"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "main": "gcssjs.darwin-x64.node",
+  "files": [
+    "gcssjs.darwin-x64.node"
+  ],
+  "description": "JavaScript wrapper for magical Grimoire CSS",
+  "keywords": [
+    "css",
+    "rust",
+    "styling",
+    "css-framework",
+    "animations",
+    "css-compiler",
+    "utility-classes",
+    "css-optimizer",
+    "language-agnostic",
+    "dynamic-styles",
+    "style-system",
+    "rust-frontend",
+    "rust-web"
+  ],
+  "author": "Dmitrii Shatokhin <dmtrshatokhin@gmail.com> (https://github.com/dmtrshat)",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10"
+  },
+  "repository": "https://github.com/persevie/grimoire-css-js.git"
+}
