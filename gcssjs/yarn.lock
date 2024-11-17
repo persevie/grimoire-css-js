@@ -67,7 +67,7 @@ __metadata:
     "@napi-rs/cli": "npm:^2.18.4"
     ava: "npm:^6.0.1"
   bin:
-    gcssjs: grimoire-css.js
+    gcssjs: gcss.js
   languageName: unknown
   linkType: soft
 

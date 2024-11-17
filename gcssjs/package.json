@@ -1,9 +1,9 @@
 {
   "name": "@persevie/gcssjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "types": "index.d.ts",
-  "bin": "grimoire-css.js",
+  "bin": "gcss.js",
   "napi": {
     "name": "gcssjs",
     "triples": {

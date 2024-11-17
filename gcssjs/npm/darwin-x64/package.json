@@ -1,15 +1,15 @@
 {
-  "name": "@persevie/gcssjs-linux-x64-gnu",
-  "version": "1.0.0",
+  "name": "@persevie/gcssjs-darwin-x64",
+  "version": "1.0.1",
   "os": [
-    "linux"
+    "darwin"
   ],
   "cpu": [
     "x64"
   ],
-  "main": "gcssjs.linux-x64-gnu.node",
+  "main": "gcssjs.darwin-x64.node",
   "files": [
-    "gcssjs.linux-x64-gnu.node"
+    "gcssjs.darwin-x64.node"
   ],
   "description": "JavaScript wrapper for magical Grimoire CSS",
   "keywords": [
@@ -32,8 +32,5 @@
   "engines": {
     "node": ">= 10"
   },
-  "repository": "https://github.com/persevie/grimoire-css-js.git",
-  "libc": [
-    "glibc"
-  ]
+  "repository": "https://github.com/persevie/grimoire-css-js.git"
 }

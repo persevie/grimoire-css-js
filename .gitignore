@@ -14,7 +14,7 @@ node_modules/
 .env.test
 .cache
 .DS_Store
-/target
+target
 Cargo.lock
 .pnp.*
 .yarn/*
