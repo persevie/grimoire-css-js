@@ -1,0 +1,27 @@
+{
+  "name": "@persevie/rollup-plugin-gcssjs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [
+    "grimoire-css",
+    "rollup",
+    "rollup-plugin",
+    "css",
+    "css-engine",
+    "dynamic-css",
+    "frontend",
+    "rust",
+    "styling"
+  ],
+  "author": "Dmitrii Shatokhin <dmtrshatokhin@gmail.com> (https://github.com/dmtrshat)",
+  "repository": "https://github.com/persevie/grimoire-css-js.git",
+  "license": "MIT",
+  "description": "rollup plugin for @persevie/gcssjs",
+  "dependencies": {
+    "@persevie/gcssjs": "^1.0.0"
+  },
+  "files": [
+    "index.js",
+    "README.md"
+  ]
+}

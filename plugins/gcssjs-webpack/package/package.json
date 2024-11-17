@@ -1,0 +1,27 @@
+{
+  "name": "@persevie/gcssjs-webpack-plugin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [
+    "grimoire-css",
+    "webpack",
+    "webpack-plugin",
+    "css",
+    "css-engine",
+    "dynamic-css",
+    "frontend",
+    "rust",
+    "styling"
+  ],
+  "author": "Dmitrii Shatokhin <dmtrshatokhin@gmail.com> (https://github.com/dmtrshat)",
+  "repository": "https://github.com/persevie/grimoire-css-js.git",
+  "license": "MIT",
+  "description": "webpack plugin for @persevie/gcssjs",
+  "dependencies": {
+    "@persevie/gcssjs": "^1.0.0"
+  },
+  "files": [
+    "index.js",
+    "README.md"
+  ]
+}
