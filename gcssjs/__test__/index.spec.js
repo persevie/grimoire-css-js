@@ -17,6 +17,6 @@ test("init grimoire css", (t) => {
 
   t.true(
     fs.existsSync(configPath),
-    "Файл grimoire.config.json должен быть создан",
+    "File grimoire.config.json should be created",
   );
 });
