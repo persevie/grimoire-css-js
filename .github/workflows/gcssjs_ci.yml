@@ -14,12 +14,11 @@ on:
       - "**"
     paths:
       - "gcssjs/**"
-    paths-ignore:
-      - "gcssjs/**/*.md"
-      - "gcssjs/LICENSE"
-      - "gcssjs/**/*.gitignore"
-      - "gcssjs/.editorconfig"
-      - "gcssjs/docs/**"
+      - "!gcssjs/**/*.md"
+      - "!gcssjs/LICENSE"
+      - "!gcssjs/**/*.gitignore"
+      - "!gcssjs/.editorconfig"
+      - "!gcssjs/docs/**"
   workflow_dispatch: null
 jobs:
   build:
