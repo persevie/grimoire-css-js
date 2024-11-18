@@ -59,6 +59,7 @@ jobs:
         with:
           node-version: 20
           cache: yarn
+          cache-dependency-path: gcssjs/yarn.lock
       - name: Install
         uses: dtolnay/rust-toolchain@stable
         if: ${{ !matrix.settings.docker }}
@@ -140,6 +141,7 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: yarn
           architecture: x64
+          cache-dependency-path: gcssjs/yarn.lock
       - name: Install dependencies
         run: yarn install
       - name: Download artifacts
@@ -173,6 +175,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: yarn
+          cache-dependency-path: gcssjs/yarn.lock
       - name: Install dependencies
         run: yarn install
       - name: Download artifacts
