@@ -108,11 +108,13 @@ jobs:
         run: ${{ matrix.settings.build }}
         if: ${{ !matrix.settings.docker }}
         shell: bash
+      - name: List built files
+        run: ls -la gcssjs/
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: bindings-${{ matrix.settings.target }}
-          path: ${{ env.APP_NAME }}.*.node
+          path: gcssjs/${{ env.APP_NAME }}.*.node
           if-no-files-found: error
   test_macos_windows_binding:
     defaults:
