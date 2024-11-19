@@ -1,5 +1,7 @@
 name: plugins_ci
-
+permissions:
+  contents: write
+  id-token: write
 on:
   push:
     branches:
@@ -8,11 +10,10 @@ on:
       - "**"
     paths:
       - "plugins/**"
-    paths-ignore:
-      - "plugins/**/*.md"
-      - "plugins/**/LICENSE"
-      - "plugins/**/.editorconfig"
-      - "plugins/**/docs/**"
+      - "!plugins/**/*.md"
+      - "!plugins/**/LICENSE"
+      - "!plugins/**/.editorconfig"
+      - "!plugins/**/docs/**"
   workflow_dispatch:
 
 jobs:
@@ -20,7 +21,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Filter paths
         id: filter
         uses: dorny/paths-filter@v2
@@ -38,6 +38,10 @@ jobs:
         with:
           node-version: "20"
           cache: "yarn"
+          cache-dependency-path: |
+            plugins/gcssjs-rollup/package/yarn.lock
+            plugins/gcssjs-vite/package/yarn.lock
+            plugins/gcssjs-webpack/package/yarn.lock
 
       - name: Build and publish gcssjs-rollup
         if: steps.filter.outputs.gcssjs-rollup == 'true'
@@ -48,7 +52,7 @@ jobs:
           yarn install
           yarn build
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
-          # npm publish --access public
+          npm publish --access public
 
       - name: Build and publish gcssjs-vite
         if: steps.filter.outputs.gcssjs-vite == 'true'
@@ -59,7 +63,7 @@ jobs:
           yarn install
           yarn build
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
-          # npm publish --access public
+          npm publish --access public
 
       - name: Build and publish gcssjs-webpack
         if: steps.filter.outputs.gcssjs-webpack == 'true'
