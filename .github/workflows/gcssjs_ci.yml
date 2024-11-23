@@ -254,7 +254,9 @@ jobs:
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
-          path: artifacts
+          path: gcssjs/artifacts
+      - name: Log
+        run: tree . -I node_modules -I target
       - name: Move artifacts
         run: yarn artifacts
       - name: List packages
@@ -262,8 +264,24 @@ jobs:
         shell: bash
       - name: Publish
         run: |
+          set -e
           npm config set provenance true
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-          npm publish --access public
+          set +e
+          OUTPUT=$(npm publish --access public 2>&1)
+          EXIT_CODE=$?
+          set -e
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "$OUTPUT"
+            if echo "$OUTPUT" | grep -q "previously published versions"; then
+              echo "Version already exists. Skipping publish."
+              exit 0
+            else
+              echo "Publish failed with unexpected error."
+              exit $EXIT_CODE
+            fi
+          else
+            echo "$OUTPUT"
+          fi
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
