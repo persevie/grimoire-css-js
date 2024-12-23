@@ -1,6 +1,6 @@
 {
   "name": "@persevie/vite-plugin-gcssjs",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "index.js",
   "keywords": [
     "grimoire-css",
@@ -18,7 +18,7 @@
   "license": "MIT",
   "description": "vite plugin for @persevie/gcssjs",
   "dependencies": {
-    "@persevie/gcssjs": "^1.1.0"
+    "@persevie/gcssjs": "^1.2.0"
   },
   "files": [
     "index.js",
