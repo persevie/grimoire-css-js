@@ -90,6 +90,8 @@ jobs:
         run: ${{ matrix.settings.setup }}
         if: ${{ matrix.settings.setup }}
         shell: bash
+      - name: Create npm dirs
+        run: yarn napi create-npm-dirs
       - name: Install dependencies
         run: yarn install
       - name: Build
@@ -136,6 +138,8 @@ jobs:
           cache: yarn
           architecture: ${{ matrix.settings.architecture }}
           cache-dependency-path: grimoire-css-js/yarn.lock
+      - name: Create npm dirs
+        run: yarn napi create-npm-dirs
       - name: Install dependencies
         run: yarn install
       - name: Download artifacts
@@ -192,6 +196,8 @@ jobs:
               console.log('IMAGE=node:${{ matrix.node }}-slim')
             }
           " >> $GITHUB_OUTPUT
+      - name: Create npm dirs
+        run: yarn napi create-npm-dirs
       - name: Install dependencies
         run: |
           yarn config set --json supportedArchitectures.cpu '["current", "arm64", "x64", "arm"]'
