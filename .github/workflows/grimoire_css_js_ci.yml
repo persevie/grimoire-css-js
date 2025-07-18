@@ -134,7 +134,7 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: yarn
           architecture: ${{ matrix.settings.architecture }}
-          cache-dependency-path: grimoire-css-js/yarn.lock
+          cache-dependency-path: yarn.lock
       - name: Install dependencies
         run: yarn install
       - name: Download artifacts
@@ -171,7 +171,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: yarn
-          cache-dependency-path: grimoire-css-js/yarn.lock
+          cache-dependency-path: yarn.lock
       - name: Output docker params
         id: docker
         run: |
@@ -233,7 +233,7 @@ jobs:
         with:
           node-version: 22
           cache: yarn
-          cache-dependency-path: grimoire-css-js/yarn.lock
+          cache-dependency-path: yarn.lock
       - name: Install dependencies
         run: yarn install
       - name: create npm dirs
