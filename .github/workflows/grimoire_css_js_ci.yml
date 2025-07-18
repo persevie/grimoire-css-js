@@ -57,8 +57,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: yarn
-          cache-dependency-path: grimoire-css-js/yarn.lock
       - name: Install
         uses: dtolnay/rust-toolchain@stable
         with:
@@ -91,7 +89,10 @@ jobs:
         if: ${{ matrix.settings.setup }}
         shell: bash
       - name: Install dependencies
-        run: yarn install
+        run: |
+          rm -rf node_modules yarn.lock
+          yarn cache clean --all
+          yarn install
       - name: Build
         run: ${{ matrix.settings.build }}
         shell: bash
