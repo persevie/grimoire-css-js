@@ -58,6 +58,7 @@ jobs:
         with:
           node-version: 22
           cache: yarn
+          cache-dependency-path: yarn.lock
       - name: Install
         uses: dtolnay/rust-toolchain@stable
         with:
@@ -215,7 +216,7 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: ${{ steps.docker.outputs.IMAGE }}
-          options: "-v ${{ github.workspace }}:${{ github.workspace }} -w ${{ github.workspace }} --platform ${{ steps.docker.outputs.PLATFORM }}"
+          options: "-v ${{ github.workspace }}:${{ github.workspace }} -w ${{ github.workspace }}/grimoire-css-js --platform ${{ steps.docker.outputs.PLATFORM }}"
           run: yarn test
   publish:
     defaults:
