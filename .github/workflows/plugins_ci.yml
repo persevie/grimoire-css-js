@@ -26,12 +26,12 @@ jobs:
         uses: dorny/paths-filter@v2
         with:
           filters: |
-            gcssjs-rollup:
-              - 'plugins/gcssjs-rollup/**'
-            gcssjs-vite:
-              - 'plugins/gcssjs-vite/**'
-            gcssjs-webpack:
-              - 'plugins/gcssjs-webpack/**'
+            grimoire-css-js-rollup:
+              - 'plugins/grimoire-css-js-rollup/**'
+            grimoire-css-js-vite:
+              - 'plugins/grimoire-css-js-vite/**'
+            grimoire-css-js-webpack:
+              - 'plugins/grimoire-css-js-webpack/**'
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -39,13 +39,13 @@ jobs:
           node-version: "20"
           cache: "yarn"
           cache-dependency-path: |
-            plugins/gcssjs-rollup/package/yarn.lock
-            plugins/gcssjs-vite/package/yarn.lock
-            plugins/gcssjs-webpack/package/yarn.lock
+            plugins/grimoire-css-js-rollup/package/yarn.lock
+            plugins/grimoire-css-js-vite/package/yarn.lock
+            plugins/grimoire-css-js-webpack/package/yarn.lock
 
-      - name: Build and publish gcssjs-rollup
-        if: steps.filter.outputs.gcssjs-rollup == 'true'
-        working-directory: plugins/gcssjs-rollup/package
+      - name: Build and publish grimoire-css-js-rollup
+        if: steps.filter.outputs.grimoire-css-js-rollup == 'true'
+        working-directory: plugins/grimoire-css-js-rollup/package
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
@@ -53,9 +53,9 @@ jobs:
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
           npm publish --access public
 
-      - name: Build and publish gcssjs-vite
-        if: steps.filter.outputs.gcssjs-vite == 'true'
-        working-directory: plugins/gcssjs-vite/package
+      - name: Build and publish grimoire-css-js-vite
+        if: steps.filter.outputs.grimoire-css-js-vite == 'true'
+        working-directory: plugins/grimoire-css-js-vite/package
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
@@ -63,9 +63,9 @@ jobs:
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
           npm publish --access public
 
-      - name: Build and publish gcssjs-webpack
-        if: steps.filter.outputs.gcssjs-webpack == 'true'
-        working-directory: plugins/gcssjs-webpack/package
+      - name: Build and publish grimoire-css-js-webpack
+        if: steps.filter.outputs.grimoire-css-js-webpack == 'true'
+        working-directory: plugins/grimoire-css-js-webpack/package
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |

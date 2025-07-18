@@ -1,7 +1,7 @@
-name: gcssjs_ci
+name: grimoire_css_js_ci
 env:
   DEBUG: napi:*
-  APP_NAME: gcssjs
+  APP_NAME: grimoire-css-js
   MACOSX_DEPLOYMENT_TARGET: "10.13"
 permissions:
   contents: write
@@ -13,18 +13,18 @@ on:
     tags-ignore:
       - "**"
     paths:
-      - "gcssjs/**"
-      - "!gcssjs/**/*.md"
-      - "!gcssjs/LICENSE"
-      - "!gcssjs/**/*.gitignore"
-      - "!gcssjs/.editorconfig"
-      - "!gcssjs/docs/**"
+      - "grimoire-css-js/**"
+      - "!grimoire-css-js/**/*.md"
+      - "!grimoire-css-js/LICENSE"
+      - "!grimoire-css-js/**/*.gitignore"
+      - "!grimoire-css-js/.editorconfig"
+      - "!grimoire-css-js/docs/**"
   workflow_dispatch: null
 jobs:
   build:
     defaults:
       run:
-        working-directory: gcssjs
+        working-directory: grimoire-css-js
     strategy:
       fail-fast: false
       matrix:
@@ -59,7 +59,7 @@ jobs:
         with:
           node-version: 20
           cache: yarn
-          cache-dependency-path: gcssjs/yarn.lock
+          cache-dependency-path: grimoire-css-js/yarn.lock
       - name: Install
         uses: dtolnay/rust-toolchain@stable
         if: ${{ !matrix.settings.docker }}
@@ -102,7 +102,7 @@ jobs:
         if: ${{ matrix.settings.docker }}
         with:
           image: ${{ matrix.settings.docker }}
-          options: "--user 0:0 -v ${{ github.workspace }}/.cargo-cache/git/db:/usr/local/cargo/git/db -v ${{ github.workspace }}/.cargo/registry/cache:/usr/local/cargo/registry/cache -v ${{ github.workspace }}/.cargo/registry/index:/usr/local/cargo/registry/index -v ${{ github.workspace }}/gcssjs:/build -w /build"
+          options: "--user 0:0 -v ${{ github.workspace }}/.cargo-cache/git/db:/usr/local/cargo/git/db -v ${{ github.workspace }}/.cargo/registry/cache:/usr/local/cargo/registry/cache -v ${{ github.workspace }}/.cargo/registry/index:/usr/local/cargo/registry/index -v ${{ github.workspace }}/grimoire-css-js:/build -w /build"
           run: ${{ matrix.settings.build }}
       - name: Build
         run: ${{ matrix.settings.build }}
@@ -112,12 +112,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: bindings-${{ matrix.settings.target }}
-          path: gcssjs/${{ env.APP_NAME }}.*.node
+          path: grimoire-css-js/${{ env.APP_NAME }}.*.node
           if-no-files-found: error
   test_macos_windows_binding:
     defaults:
       run:
-        working-directory: gcssjs
+        working-directory: grimoire-css-js
     name: Test bindings on ${{ matrix.settings.target }} - node@${{ matrix.node }}
     needs:
       - build
@@ -141,14 +141,14 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: yarn
           architecture: x64
-          cache-dependency-path: gcssjs/yarn.lock
+          cache-dependency-path: grimoire-css-js/yarn.lock
       - name: Install dependencies
         run: yarn install
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
           name: bindings-${{ matrix.settings.target }}
-          path: gcssjs
+          path: grimoire-css-js
       - name: List packages
         run: ls -R .
         shell: bash
@@ -157,7 +157,7 @@ jobs:
   test_linux_x64_gnu_binding:
     defaults:
       run:
-        working-directory: gcssjs
+        working-directory: grimoire-css-js
     name: Test bindings on Linux-x64-gnu - node@${{ matrix.node }}
     needs:
       - build
@@ -175,14 +175,14 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: yarn
-          cache-dependency-path: gcssjs/yarn.lock
+          cache-dependency-path: grimoire-css-js/yarn.lock
       - name: Install dependencies
         run: yarn install
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
           name: bindings-x86_64-unknown-linux-gnu
-          path: gcssjs
+          path: grimoire-css-js
       - name: List packages
         run: ls -R .
         shell: bash
@@ -191,7 +191,7 @@ jobs:
   test_linux_aarch64_gnu_binding:
     defaults:
       run:
-        working-directory: gcssjs
+        working-directory: grimoire-css-js
     name: Test bindings on aarch64-unknown-linux-gnu - node@${{ matrix.node }}
     needs:
       - build
@@ -208,7 +208,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: bindings-aarch64-unknown-linux-gnu
-          path: gcssjs
+          path: grimoire-css-js
       - name: List packages
         run: ls -R .
         shell: bash
@@ -226,7 +226,7 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: node:${{ matrix.node }}-slim
-          options: "--platform linux/arm64 -v ${{ github.workspace }}/gcssjs:/build -w /build"
+          options: "--platform linux/arm64 -v ${{ github.workspace }}/grimoire-css-js:/build -w /build"
           run: |
             set -e
             yarn test
@@ -234,7 +234,7 @@ jobs:
   publish:
     defaults:
       run:
-        working-directory: gcssjs
+        working-directory: grimoire-css-js
     name: Publish Main Package
     runs-on: ubuntu-latest
     needs:
@@ -248,13 +248,13 @@ jobs:
         with:
           node-version: 20
           cache: yarn
-          cache-dependency-path: gcssjs/yarn.lock
+          cache-dependency-path: grimoire-css-js/yarn.lock
       - name: Install dependencies
         run: yarn install
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
-          path: gcssjs/artifacts
+          path: grimoire-css-js/artifacts
       - name: Log
         run: tree . -I node_modules -I target
       - name: Move artifacts

@@ -60,14 +60,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@persevie/gcssjs@workspace:.":
+"@persevie/grimoire-css-js@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@persevie/gcssjs@workspace:."
+  resolution: "@persevie/grimoire-css-js@workspace:."
   dependencies:
     "@napi-rs/cli": "npm:^2.18.4"
     ava: "npm:^6.0.1"
   bin:
-    gcssjs: gcss.js
+    grimoire-css-js: grimoire-css-js.js
   languageName: unknown
   linkType: soft
 
