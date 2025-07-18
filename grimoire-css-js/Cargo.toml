@@ -1,18 +1,22 @@
 [package]
-edition = "2021"
+edition = "2024"
 name = "grimoire_css_js"
 version = "0.0.0"
+rust-version = "1.88"
+authors = ["Dmitrii Shatokhin <dmtrshatokhin@gmail.com>"]
+license = "MIT"
 
 [lib]
 crate-type = ["cdylib"]
 
 [dependencies]
 grimoire_css = "1.5.0"
-napi = { version = "2.12.2", default-features = false, features = ["napi4"] }
-napi-derive = "2.12.2"
+napi = "3.0.0"
+napi-derive = "3.0.0"
+
 
 [build-dependencies]
-napi-build = "2.0.1"
+napi-build = "2"
 
 [profile.release]
 lto = true
