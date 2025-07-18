@@ -1,3 +1,3 @@
-# `@persevie/gcssjs-darwin-arm64`
+# `@persevie/grimoire-css-js-darwin-arm64`
 
-This is the **aarch64-apple-darwin** binary for `@persevie/gcssjs`
+This is the **aarch64-apple-darwin** binary for `@persevie/grimoire-css-js`

@@ -1,3 +1,3 @@
-# `@persevie/gcssjs-linux-x64-gnu`
+# `@persevie/grimoire-css-js-linux-x64-gnu`
 
-This is the **x86_64-unknown-linux-gnu** binary for `@persevie/gcssjs`
+This is the **x86_64-unknown-linux-gnu** binary for `@persevie/grimoire-css-js`

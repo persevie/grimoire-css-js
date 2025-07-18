@@ -1,3 +1,3 @@
-# `@persevie/gcssjs-win32-arm64-msvc`
+# `@persevie/grimoire-css-js-win32-arm64-msvc`
 
-This is the **aarch64-pc-windows-msvc** binary for `@persevie/gcssjs`
+This is the **aarch64-pc-windows-msvc** binary for `@persevie/grimoire-css-js`

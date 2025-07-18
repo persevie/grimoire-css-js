@@ -1,5 +1,5 @@
 {
-  "name": "@persevie/gcssjs-darwin-arm64",
+  "name": "@persevie/grimoire-css-js-darwin-arm64",
   "version": "1.3.0",
   "os": [
     "darwin"
@@ -7,9 +7,9 @@
   "cpu": [
     "arm64"
   ],
-  "main": "gcssjs.darwin-arm64.node",
+  "main": "grimoire-css-js.darwin-arm64.node",
   "files": [
-    "gcssjs.darwin-arm64.node"
+    "grimoire-css-js.darwin-arm64.node"
   ],
   "description": "JavaScript wrapper for magical Grimoire CSS",
   "keywords": [

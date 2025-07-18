@@ -1,5 +1,5 @@
 {
-  "name": "@persevie/gcssjs-linux-x64-gnu",
+  "name": "@persevie/grimoire-css-js-linux-x64-gnu",
   "version": "1.3.0",
   "os": [
     "linux"
@@ -7,9 +7,9 @@
   "cpu": [
     "x64"
   ],
-  "main": "gcssjs.linux-x64-gnu.node",
+  "main": "grimoire-css-js.linux-x64-gnu.node",
   "files": [
-    "gcssjs.linux-x64-gnu.node"
+    "grimoire-css-js.linux-x64-gnu.node"
   ],
   "description": "JavaScript wrapper for magical Grimoire CSS",
   "keywords": [
