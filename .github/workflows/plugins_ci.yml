@@ -14,7 +14,7 @@ on:
       - "!plugins/**/LICENSE"
       - "!plugins/**/.editorconfig"
       - "!plugins/**/docs/**"
-  workflow_dispatch:
+  workflow_dispatch: null
 
 jobs:
   publish:

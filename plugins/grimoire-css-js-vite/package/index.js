@@ -1,8 +1,8 @@
-import { start } from "@persevie/gcssjs";
+import { start } from "@persevie/grimoire-css-js";
 
-function vitePluginGcssjs() {
+function vitePluginGrimoireCSSJS() {
   return {
-    name: "vite-plugin-gcssjs",
+    name: "vite-plugin-grimoire-css-js",
 
     buildStart() {
       start("build");
@@ -20,4 +20,4 @@ function vitePluginGcssjs() {
   };
 }
 
-export default vitePluginGcssjs;
+export default vitePluginGrimoireCSSJS;

@@ -1,11 +1,11 @@
 {
-  "name": "@persevie/vite-plugin-gcssjs",
+  "name": "@persevie/grimoire-css-js-webpack-plugin",
   "version": "1.3.0",
   "main": "index.js",
   "keywords": [
     "grimoire-css",
-    "vite",
-    "vite-plugin",
+    "webpack",
+    "webpack-plugin",
     "css",
     "css-engine",
     "dynamic-css",
@@ -16,9 +16,9 @@
   "author": "Dmitrii Shatokhin <dmtrshatokhin@gmail.com> (https://github.com/dmtrshat)",
   "repository": "https://github.com/persevie/grimoire-css-js.git",
   "license": "MIT",
-  "description": "vite plugin for @persevie/gcssjs",
+  "description": "webpack plugin for @persevie/grimoire-css-js",
   "dependencies": {
-    "@persevie/gcssjs": "^1.3.0"
+    "@persevie/grimoire-css-js": "^1.3.0"
   },
   "files": [
     "index.js",

@@ -1,4 +1,4 @@
-const { start } = require("@persevie/gcssjs");
+const { start } = require("@persevie/grimoire-css-js");
 
 class GcssjsWebpackPlugin {
   apply(compiler) {
@@ -7,7 +7,7 @@ class GcssjsWebpackPlugin {
       (compilation, callback) => {
         start("build");
         callback();
-      },
+      }
     );
   }
 }
