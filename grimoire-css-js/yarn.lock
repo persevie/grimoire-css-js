@@ -1262,7 +1262,6 @@ __metadata:
     npm-run-all2: "npm:^8.0.4"
     oxlint: "npm:^1.3.0"
     prettier: "npm:^3.6.0"
-    tinybench: "npm:^4.0.1"
     typescript: "npm:^5.8.3"
   bin:
     grimoire-css-js: grimoire-css-js.js
@@ -3011,13 +3010,6 @@ __metadata:
   version: 1.0.0
   resolution: "time-zone@npm:1.0.0"
   checksum: 10c0/d00ebd885039109011b6e2423ebbf225160927333c2ade6d833e9cc4676db20759f1f3855fafde00d1bd668c243a6aa68938ce71fe58aab0d514e820d59c1d81
-  languageName: node
-  linkType: hard
-
-"tinybench@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "tinybench@npm:4.0.1"
-  checksum: 10c0/42ed8abf2eb914cfbff2cede5fa98cca7dcaf135ab5342a3701d2f90ed3d29fc1a2dcc092a91b1dc483d0de1fa69feac3fea64fad2ddef284bba34391bc96405
   languageName: node
   linkType: hard
 
