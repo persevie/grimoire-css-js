@@ -95,14 +95,38 @@ jobs:
       - name: Build
         run: ${{ matrix.settings.build }}
         shell: bash
-      - name: List build output
+      - name: Debug artifact upload paths
         run: |
-          echo "Current directory:"
+          echo "=== DEBUGGING ARTIFACT UPLOAD ==="
+          echo "Current working directory:"
           pwd
+          echo ""
+          echo "APP_NAME environment variable:"
+          echo "${{ env.APP_NAME }}"
+          echo ""
           echo "Files in current directory:"
           ls -la
-          echo "Looking for .node files:"
+          echo ""
+          echo "All .node files found:"
           find . -name "*.node" -type f
+          echo ""
+          echo "Testing glob patterns:"
+          echo "Pattern: *.node"
+          ls -la *.node 2>/dev/null || echo "No files match *.node"
+          echo ""
+          echo "Pattern: ${{ env.APP_NAME }}.*.node"
+          ls -la ${{ env.APP_NAME }}.*.node 2>/dev/null || echo "No files match ${{ env.APP_NAME }}.*.node"
+          echo ""
+          echo "Pattern: grimoire-css-js.*.node"
+          ls -la grimoire-css-js.*.node 2>/dev/null || echo "No files match grimoire-css-js.*.node"
+          echo ""
+          echo "Testing if GitHub Actions can expand the pattern:"
+          echo "Expanding \${{ env.APP_NAME }}.*.node:"
+          for file in ${{ env.APP_NAME }}.*.node; do
+            if [ -f "$file" ]; then
+              echo "Found: $file"
+            fi
+          done
         shell: bash
       - name: Upload artifact
         uses: actions/upload-artifact@v4
