@@ -10,7 +10,7 @@ license = "MIT"
 crate-type = ["cdylib"]
 
 [dependencies]
-grimoire_css = "1.5.0"
+grimoire_css = "1.6.0"
 napi = "3.0.0"
 napi-derive = "3.0.0"
 
