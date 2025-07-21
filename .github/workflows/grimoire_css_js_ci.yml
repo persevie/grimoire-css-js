@@ -26,6 +26,9 @@ concurrency:
   cancel-in-progress: true
 jobs:
   lint:
+    defaults:
+      run:
+        working-directory: grimoire-css-js
     name: Lint
     runs-on: ubuntu-latest
     steps:
@@ -35,6 +38,7 @@ jobs:
         with:
           node-version: 22
           cache: yarn
+          cache-dependency-path: grimoire-css-js/yarn.lock
       - name: Install
         uses: dtolnay/rust-toolchain@stable
         with:
