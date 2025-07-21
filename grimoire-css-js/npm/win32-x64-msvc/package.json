@@ -1,6 +1,6 @@
 {
   "name": "@persevie/grimoire-css-js-win32-x64-msvc",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "cpu": [
     "x64"
   ],
