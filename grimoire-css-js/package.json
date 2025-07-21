@@ -42,13 +42,6 @@
   "engines": {
     "node": ">= 6.14.2 < 7 || >= 8.11.2 < 9 || >= 9.11.0 < 10 || >= 10.0.0"
   },
-  "optionalDependencies": {
-    "@persevie/grimoire-css-js-win32-x64-msvc": "1.4.1",
-    "@persevie/grimoire-css-js-darwin-x64": "1.4.1",
-    "@persevie/grimoire-css-js-darwin-arm64": "1.4.1",
-    "@persevie/grimoire-css-js-linux-x64-gnu": "1.4.1",
-    "@persevie/grimoire-css-js-linux-arm64-gnu": "1.4.1"
-  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
@@ -62,7 +55,7 @@
     "format:toml": "taplo format",
     "format:rs": "cargo fmt",
     "lint": "oxlint .",
-    "prepublishOnly": "napi prepublish -t npm",
+    "prepublishOnly": "napi prepublish -t npm --tagstyle npm",
     "test": "ava",
     "version": "napi version",
     "prepare": "husky"
