@@ -25,7 +25,49 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  determine_release:
+    name: Determine if release is needed
+    runs-on: ubuntu-latest
+    outputs:
+      SHOULD_RELEASE: ${{ steps.release_check.outputs.SHOULD_RELEASE }}
+      NEW_TAG: ${{ steps.release_check.outputs.NEW_TAG }}
+      PACKAGE_VERSION: ${{ steps.release_check.outputs.PACKAGE_VERSION }}
+      IS_PRERELEASE: ${{ steps.release_check.outputs.IS_PRERELEASE }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine if release is needed
+        id: release_check
+        working-directory: grimoire-css-js
+        shell: bash
+        run: |
+          git fetch --tags
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          echo "Current version: $CURRENT_VERSION"
+
+          if git rev-parse "v$CURRENT_VERSION" >/dev/null 2>&1; then
+            echo "Tag v$CURRENT_VERSION already exists. No release needed."
+            echo "SHOULD_RELEASE=false" >> $GITHUB_OUTPUT
+          else
+            echo "No existing tag for version $CURRENT_VERSION. Release is needed."
+            echo "SHOULD_RELEASE=true" >> $GITHUB_OUTPUT
+            echo "NEW_TAG=v$CURRENT_VERSION" >> $GITHUB_OUTPUT
+            echo "PACKAGE_VERSION=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+            
+            # Determine if it's a prerelease (contains alpha, beta, rc, etc.)
+            if echo "$CURRENT_VERSION" | grep -E "(alpha|beta|rc|dev|pre)" > /dev/null; then
+              echo "IS_PRERELEASE=true" >> $GITHUB_OUTPUT
+            else
+              echo "IS_PRERELEASE=false" >> $GITHUB_OUTPUT
+            fi
+          fi
+
   lint:
+    needs: determine_release
+    if: needs.determine_release.outputs.SHOULD_RELEASE == 'true'
     defaults:
       run:
         working-directory: grimoire-css-js
@@ -53,7 +95,9 @@ jobs:
         run: cargo clippy
   build:
     needs:
+      - determine_release
       - lint
+    if: needs.determine_release.outputs.SHOULD_RELEASE == 'true'
     defaults:
       run:
         working-directory: grimoire-css-js
@@ -252,8 +296,10 @@ jobs:
     name: Publish
     runs-on: ubuntu-latest
     needs:
+      - determine_release
       - test-macOS-windows-binding
       - test-linux-binding
+    if: needs.determine_release.outputs.SHOULD_RELEASE == 'true'
     steps:
       - uses: actions/checkout@v4
       - name: Setup node
@@ -280,17 +326,57 @@ jobs:
       - name: Publish
         run: |
           npm config set provenance true
-          if git log -1 --pretty=%B | grep "^[0-9]\+\.[0-9]\+\.[0-9]\+$";
-          then
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-            npm publish --access public
-          elif git log -1 --pretty=%B | grep "^[0-9]\+\.[0-9]\+\.[0-9]\+";
-          then
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+
+          VERSION="${{ needs.determine_release.outputs.PACKAGE_VERSION }}"
+          IS_PRERELEASE="${{ needs.determine_release.outputs.IS_PRERELEASE }}"
+
+          echo "Publishing version: $VERSION"
+          echo "Is prerelease: $IS_PRERELEASE"
+
+          if [ "$IS_PRERELEASE" = "true" ]; then
+            echo "Publishing prerelease version as 'next' tag"
             npm publish --tag next --access public
           else
-            echo "Not a release, skipping publish"
+            echo "Publishing stable version as 'latest' tag"
+            npm publish --access public
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  create_release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    needs:
+      - determine_release
+      - publish
+    if: needs.determine_release.outputs.SHOULD_RELEASE == 'true'
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./artifacts
+
+      - name: Create and push tag
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git tag -a "${{ needs.determine_release.outputs.NEW_TAG }}" -m "Release ${{ needs.determine_release.outputs.NEW_TAG }}"
+          git push origin "${{ needs.determine_release.outputs.NEW_TAG }}"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ needs.determine_release.outputs.NEW_TAG }}
+          files: ./artifacts/**/*
+          body: "Release of grimoire-css-js version ${{ needs.determine_release.outputs.NEW_TAG }}"
+          draft: false
+          prerelease: ${{ needs.determine_release.outputs.IS_PRERELEASE == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
