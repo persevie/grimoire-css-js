@@ -363,13 +363,6 @@ jobs:
         with:
           path: ./artifacts
 
-      - name: Create and push tag
-        run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git tag -a "${{ needs.determine_release.outputs.NEW_TAG }}" -m "Release ${{ needs.determine_release.outputs.NEW_TAG }}"
-          git push origin "${{ needs.determine_release.outputs.NEW_TAG }}"
-
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
