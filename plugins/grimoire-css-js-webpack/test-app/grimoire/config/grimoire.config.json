@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/persevie/grimoire-css/main/src/core/config/config-schema.json",
+  "variables": null,
+  "scrolls": null,
+  "projects": [
+    {
+      "projectName": "main",
+      "inputPaths": ["./src/**/*.jsx"],
+      "outputDirPath": "./dist",
+      "singleOutputFileName": "main.css"
+    }
+  ],
+  "shared": null,
+  "critical": null,
+  "lock": null
+}

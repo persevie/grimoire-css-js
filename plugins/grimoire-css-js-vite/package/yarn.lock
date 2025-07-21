@@ -2,44 +2,38 @@
 # yarn lockfile v1
 
 
-"@persevie/gcssjs-darwin-arm64@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@persevie/gcssjs-darwin-arm64/-/gcssjs-darwin-arm64-1.0.0.tgz#954f753c6dde530a7b4a24cb055e6603d88679b2"
-  integrity sha512-IAGI6uI7xzKKQdj2r/LRv/XO09z8den3Rpp6FTpI9Fi8NqFnOoTTOLDR1r3fAqJJUopKwNtWAMg4J3QQDyopdw==
+"@persevie/grimoire-css-js-darwin-arm64@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@persevie/grimoire-css-js-darwin-arm64/-/grimoire-css-js-darwin-arm64-2.0.0.tgz#910a0686ba2ead87c863b84f07353e2278a000dc"
+  integrity sha512-pAn3iPomdlHBQ7KXEHvOXzylSswJAKQrzx+B9I5xN2v4vF9FbZbNqfU9rp9d2QSj0tynu7zOHb6BQM5RgVX03Q==
 
-"@persevie/gcssjs-darwin-x64@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@persevie/gcssjs-darwin-x64/-/gcssjs-darwin-x64-1.0.0.tgz#2631f7843c4a1aee7b8d1a4c26f337ede0a141d5"
-  integrity sha512-I8C9pvrArZ8Gzg4dkS+AkCISqlH25UWlvNJOzYaTWCZowvwVAB1xvHWR8WmRGgf0kP6c+9JEMWX8GF692Owe3w==
+"@persevie/grimoire-css-js-darwin-x64@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@persevie/grimoire-css-js-darwin-x64/-/grimoire-css-js-darwin-x64-2.0.0.tgz#36e7c1cb356609955c9fa14f2618c59adc1964a1"
+  integrity sha512-L1t/u7opvbsohKjD4gpsw2Et+SMV4zyc/KiMHjH2ZJh1wUMkS3MYH8w2USFtzjADBj+WoXkGCTZE8d4QI8sydA==
 
-"@persevie/gcssjs-linux-arm64-gnu@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@persevie/gcssjs-linux-arm64-gnu/-/gcssjs-linux-arm64-gnu-1.0.0.tgz#7302ed78f0a3b6d2420bc91ca3b0dbbbf632a0ff"
-  integrity sha512-ku0Mt4xSU/WuVOnrsWLZ5QJSa3lD7Yu2JIEd0MGdCl2qz3ocPqu8MYi6H97sbFnsZWKAHpy9nVTGUeIOgGZsQw==
+"@persevie/grimoire-css-js-linux-arm64-gnu@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@persevie/grimoire-css-js-linux-arm64-gnu/-/grimoire-css-js-linux-arm64-gnu-2.0.0.tgz#a15271333466dca4278d2a77fe1240e780567044"
+  integrity sha512-cIwtu/nrOtQDblO8eokqQCvX3aUCzfimhaZxyWyrUtkrcvrUNMJSX04CrV/EkS98dW1ci/ztAI+PGqeuHWZclw==
 
-"@persevie/gcssjs-linux-x64-gnu@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@persevie/gcssjs-linux-x64-gnu/-/gcssjs-linux-x64-gnu-1.0.0.tgz#8e5fe5b92dbf6944c3ccdfadc83b56f6fcc73c48"
-  integrity sha512-WO0iuaBGVeJ1cWa0rcivsokShM4Yn3wVP+E3SpmG7RJXMyUMUMEIlNUAfNJptYbyk8sxdsOowe8xleIzH4KYXw==
+"@persevie/grimoire-css-js-linux-x64-gnu@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@persevie/grimoire-css-js-linux-x64-gnu/-/grimoire-css-js-linux-x64-gnu-2.0.0.tgz#e819744eda848d4a68adc697f6cec85ec8b9fa19"
+  integrity sha512-VyPXwm1Dz1+dXVpWS2QM7t3h3BwTJ/TAbYJgsXGLady0ZjRBrkszkKgScGWmJ3vlUuuBcAV8dc7g+pQuGNGIqQ==
 
-"@persevie/gcssjs-win32-arm64-msvc@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@persevie/gcssjs-win32-arm64-msvc/-/gcssjs-win32-arm64-msvc-1.0.0.tgz#51028eb8d5d0b6a02871c5d7048c952ab05ff0a0"
-  integrity sha512-ZM6w5lKlPvH+d0eoBnps2U+ta8x6p3cVQaH5Ip9lRi9H1vz4X0SA9F0i2u64gum6H714vDCCqfTZEGM6vxCj0w==
+"@persevie/grimoire-css-js-win32-x64-msvc@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@persevie/grimoire-css-js-win32-x64-msvc/-/grimoire-css-js-win32-x64-msvc-2.0.0.tgz#4691f7e6f39e73d1a0ea09571f1da3e944e2e594"
+  integrity sha512-TL6+U3yZaMFbYMC+YwdAMk/is8uVnrj18EA/3CNd9UBOLIQJYQp/LAOKdz2Onl2L18qKFhMWDyjwnr5SoH2xjg==
 
-"@persevie/gcssjs-win32-x64-msvc@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@persevie/gcssjs-win32-x64-msvc/-/gcssjs-win32-x64-msvc-1.0.0.tgz#35c63e0e996a5364c5f765b5df2b468296cd54dc"
-  integrity sha512-YsLRVzFqg/j64TjXzaGK8yYPQnvAK/OspAzLVqDQpzXdSDQoFV38aHbcZ+KAGVne86p+VtnHfJA/HPo1ZEROEA==
-
-"@persevie/gcssjs@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@persevie/gcssjs/-/gcssjs-1.0.0.tgz#8613420f6d4e9901e19cbcfa4ef9d56e7767c44e"
-  integrity sha512-ggyJNJu/SHGuRUE+l89YrTW9jiBjgIrUOxrX/VtHbcwhcDaMys2FRb6FvNT4Sn5IqpaBOMgGgenQVOmI3FfyGw==
+"@persevie/grimoire-css-js@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@persevie/grimoire-css-js/-/grimoire-css-js-2.0.0.tgz#e1d810927e3f0000ab688fa9d77e09a839090f60"
+  integrity sha512-ptodAIxvFaiV7uPhxUlTQRcHj1TXc7QC9diSUDPW8uVM5ck/hzF1cJyOJCNXVPzSUVCHcSNM6AL3Unqqu4Hgcg==
   optionalDependencies:
-    "@persevie/gcssjs-darwin-arm64" "1.0.0"
-    "@persevie/gcssjs-darwin-x64" "1.0.0"
-    "@persevie/gcssjs-linux-arm64-gnu" "1.0.0"
-    "@persevie/gcssjs-linux-x64-gnu" "1.0.0"
-    "@persevie/gcssjs-win32-arm64-msvc" "1.0.0"
-    "@persevie/gcssjs-win32-x64-msvc" "1.0.0"
+    "@persevie/grimoire-css-js-darwin-arm64" "2.0.0"
+    "@persevie/grimoire-css-js-darwin-x64" "2.0.0"
+    "@persevie/grimoire-css-js-linux-arm64-gnu" "2.0.0"
+    "@persevie/grimoire-css-js-linux-x64-gnu" "2.0.0"
+    "@persevie/grimoire-css-js-win32-x64-msvc" "2.0.0"
